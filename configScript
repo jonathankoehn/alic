@@ -1,6 +1,6 @@
 #!/bin/bash
 sed -n '/%wheel ALL=(ALL) ALL /s/^#//' /etc/sudoers
-useradd -m -g users -G wheel -s /bin/bash echo ${username} | cat /etc/hostname
+useradd -m -g users -G wheel -s /bin/bash | echo ${username} | cat /etc/hostname
 passwd ${username}
 echo "server de.pool.ntp.org" >> /etc/ntp.conf
 ntpd -gq
