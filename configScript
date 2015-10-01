@@ -1,0 +1,29 @@
+#!/bin/bash
+
+sed -n '/%wheel ALL=(ALL) ALL /s/^#//' /etc/sudoers
+
+# create user
+$username | echo $hname
+useradd -m -g users -G wheel -s /bin/bash ${username}
+passwd ${username}
+while [[ $? -ne 0 ]]; do
+  passwd ${username}
+done
+
+echo "server de.pool.ntp.org" >> /etc/ntp.conf
+ntpd -gq
+hwclock -w
+
+# enable services
+for service in $(<servicesToEnable); do
+  systemctl enable ${service}
+done
+
+#config ssh
+curl -o sshd_config https://github.com/jonathankoehn/alic
+mv sshd_config /etc/ssh/sshd_config
+
+echo "AllowUsers $username" >> /etc/ssh/sshd_config
+
+rm installScript
+rm configScript
