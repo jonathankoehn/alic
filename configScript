@@ -9,10 +9,11 @@ done
 echo "server de.pool.ntp.org" >> /etc/ntp.conf
 ntpd -gq
 hwclock -w
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/servicesToEnable > servicesToEnable
 for service in $(<servicesToEnable); do
   systemctl enable ${service}
 done
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/sshd_config > /etc/ssh/sshd_config
 echo "AllowUsers $username" >> /etc/ssh/sshd_config
-rm installScript
+rm installScript2
 rm configScript
