@@ -1,11 +1,7 @@
 #!/bin/bash
 sed -n '/%wheel ALL=(ALL) ALL /s/^#//' /etc/sudoers
-echo ${username} | cat /etc/hostname
-useradd -m -g users -G wheel -s /bin/bash ${username}
+useradd -m -g users -G wheel -s /bin/bash echo ${username} | cat /etc/hostname
 passwd ${username}
-while [[ $? -ne 0 ]]; do
-  passwd ${username}
-done
 echo "server de.pool.ntp.org" >> /etc/ntp.conf
 ntpd -gq
 hwclock -w
