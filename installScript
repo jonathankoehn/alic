@@ -23,7 +23,7 @@ mkinitcpio -p linux
 passwd 
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install /dev/sda
-curl -o configScript https://github.com/jonathankoehn/alic
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/
 chmod +x configScript
 exit
 umount /dev/sda1
