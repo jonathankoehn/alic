@@ -10,7 +10,6 @@ pacstrap /mnt base base-devel
 genfstab -Lp /mnt > /mnt/etc/fstab
 arch-chroot /mnt/
 pacman -S sudo ntp acpid dbus avahi cups cronie xorg-server xorg-init  xorg-utils xorg-server-utils xorg-drivers ttf-dejavu networkmanager grub gnome gnome-extra network-manager-applet firefox guake openssh conky
-# hostname
 read -p "Enter hostname: " hname
 echo "$hname" > /etc/hostname
 echo KEYMAP=de-latin1 > /etc/vconsole.conf
@@ -23,7 +22,7 @@ mkinitcpio -p linux
 passwd 
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-install /dev/sda
-curl https://raw.githubusercontent.com/jonathankoehn/alic/master/
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/configScript > configScript
 chmod +x configScript
 exit
 umount /dev/sda1

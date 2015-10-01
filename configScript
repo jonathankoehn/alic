@@ -15,8 +15,7 @@ for service in $(<servicesToEnable); do
   systemctl enable ${service}
 done
 #config ssh
-curl https://raw.githubusercontent.com/jonathankoehn/alic/master/sshd_config
-mv sshd_config /etc/ssh/sshd_config
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/sshd_config > /etc/ssh/sshd_config
 echo "AllowUsers $username" >> /etc/ssh/sshd_config
 rm installScript
 rm configScript
