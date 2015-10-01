@@ -1,6 +1,6 @@
 #!/bin/bash
 sed -n '/%wheel ALL=(ALL) ALL /s/^#//' /etc/sudoers
-$username | cat /etc/hostname
+${username} | cat /etc/hostname
 useradd -m -g users -G wheel -s /bin/bash ${username}
 passwd ${username}
 while [[ $? -ne 0 ]]; do
@@ -17,3 +17,4 @@ curl https://raw.githubusercontent.com/jonathankoehn/alic/master/sshd_config > /
 echo "AllowUsers $username" >> /etc/ssh/sshd_config
 rm installScript2
 rm configScript
+en servicesToEnable
