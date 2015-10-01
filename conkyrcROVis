@@ -1,0 +1,102 @@
+# position
+alignment top_left
+gap_x 800
+gap_y 0
+
+background no
+border_width 1
+cpu_avg_samples 2
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont DejaVu Sans Mono:size=10
+net_avg_samples 2
+#no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type desktop
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+minimum_size 300 830
+
+# avoid flickering
+double_buffer yes
+
+# colors
+default_color white
+default_shade_color black
+default_outline_color black
+color0 000000
+color1 144556
+color2 33b0dc
+
+# configuration
+TEXT
+${voffset 30}${color2}Ports
+$color1 TCP connection:$color2 ${tcp_portmon 1 65535 count}
+${if_match  "${tcp_portmon 1 1023 count}"!="0"}\
+${color red} ${tcp_portmon 1 1023 count} well known port(s) 
+connected!
+ ${tcp_portmon 1 1023 rservice 0} ${tcp_portmon 1 1023 rhost 
+0} on local Port ${tcp_portmon 1 1023 lport 0}
+${if_match  "${tcp_portmon 1 1023 count}">="2"}\
+ ${tcp_portmon 1 1023 rservice 1} ${tcp_portmon 1 1023 rhost 
+1} on local Port ${tcp_portmon 1 1023 lport 1}
+$endif\
+${if_match  "${tcp_portmon 1 1023 count}">="3"}\
+ ${tcp_portmon 1 1023 rservice 2} ${tcp_portmon 1 1023 rhost 
+2} on local Port ${tcp_portmon 1 1023 lport 2}${color2}
+$endif\
+$endif\
+$color2\
+ ${tcp_portmon 1 65535 rservice 0} ${tcp_portmon 1 65535 
+rhost 0}
+ ${tcp_portmon 1 65535 rservice 1} ${tcp_portmon 1 65535 
+rhost 1}
+ ${tcp_portmon 1 65535 rservice 2} ${tcp_portmon 1 65535 
+rhost 2}
+ ${tcp_portmon 1 65535 rservice 3} ${tcp_portmon 1 65535 
+rhost 3}
+ ${tcp_portmon 1 65535 rservice 4} ${tcp_portmon 1 65535 
+rhost 4}
+ ${tcp_portmon 1 65535 rservice 5} ${tcp_portmon 1 65535 
+rhost 5}
+ ${tcp_portmon 1 65535 rservice 6} ${tcp_portmon 1 65535 
+rhost 6}
+ ${tcp_portmon 1 65535 rservice 7} ${tcp_portmon 1 65535 
+rhost 7}
+ ${tcp_portmon 1 65535 rservice 8} ${tcp_portmon 1 65535 
+rhost 8}
+ ${tcp_portmon 1 65535 rservice 9} ${tcp_portmon 1 65535 
+rhost 9}
+ ${tcp_portmon 1 65535 rservice 10} ${tcp_portmon 1 65535 
+rhost 10}
+ ${tcp_portmon 1 65535 rservice 11} ${tcp_portmon 1 65535 
+rhost 11}
+ ${tcp_portmon 1 65535 rservice 12} ${tcp_portmon 1 65535 
+rhost 12}
+ ${tcp_portmon 1 65535 rservice 13} ${tcp_portmon 1 65535 
+rhost 13}
+ ${tcp_portmon 1 65535 rservice 14} ${tcp_portmon 1 65535 
+rhost 14}
+ ${tcp_portmon 1 65535 rservice 15} ${tcp_portmon 1 65535 
+rhost 15}
+ ${tcp_portmon 1 65535 rservice 16} ${tcp_portmon 1 65535 
+rhost 16}
+ ${tcp_portmon 1 65535 rservice 17} ${tcp_portmon 1 65535 
+rhost 17}
+ ${tcp_portmon 1 65535 rservice 18} ${tcp_portmon 1 65535 
+rhost 18}
+ ${tcp_portmon 1 65535 rservice 19} ${tcp_portmon 1 65535 
+rhost 19}

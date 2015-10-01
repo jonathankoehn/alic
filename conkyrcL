@@ -1,0 +1,106 @@
+# position
+alignment top_left
+gap_x 90
+gap_y 0
+
+background no
+border_width 1
+cpu_avg_samples 2
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+use_xft yes
+xftfont DejaVu Sans Mono:size=10
+net_avg_samples 2
+#no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+own_window yes
+own_window_class Conky
+own_window_type desktop
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+show_graph_scale no
+show_graph_range no
+minimum_size 0 700
+
+# avoid flickering
+double_buffer yes
+
+# colors
+default_color white
+default_shade_color black
+default_outline_color black
+color0 000000
+color1 144556
+color2 33b0dc
+
+# configuration
+TEXT
+${voffset 30}${color2}System
+ $color2${exec whoami}@${nodename} $kernel \
+${if_match  "${execpi 600 checkupdates | wc -l}"!="0"}\
+(${execpi 60 checkupdates | wc -l})
+$endif
+$color1 Uptime:$color2 $uptime $color1 Load:$color2 $loadavg
+
+${color2}CPU
+$color1 Frequency: $color2${freq cpu0} MHz $color1 Temperature:$color2 $acpitemp C
+$color1 Load: $color1 ${cpugraph cpu0 12,200 000000 33b0dc} $color2 ${cpubar cpu0 12,100} ${cpu cpu0}%
+       $color1 ${cpugraph cpu1 12,200 000000 33b0dc}  $color2${cpubar cpu1 12,100} ${cpu cpu1}%
+       $color1 ${cpugraph cpu2 12,200 000000 33b0dc}  $color2${cpubar cpu2 12,100} ${cpu cpu2}%
+
+${color2}Memory
+$color1 RAM: $color2$mem $color1${memgraph 12, 150 000000 33b0dc}  $color2${membar 12,100} $memperc%
+${if_match "${swapperc}"!="0"}\
+$color1 Swap:     $color2$swap${color red}SWAP ENABLED! ${offset 46}$color2${swapbar 12,100} $swapperc%
+$endif\
+
+${color2}Network (public)
+#${if_match  "${execi 600 curl "http://myexternalip.com/raw"}"!=""}
+$color1 IPv4: $color2${execi 600 curl "http://myexternalip.com/raw"}
+#$color1 Useragent: $color2${execi 600 curl "ifconfig.me/ua"}
+$color1 Hostname: $color2${execi 600 curl "ifconfig.me/host"}
+#$endif
+
+${color2}Network (enp0s25)
+${if_match  "${addr enp0s25}"=="No Address"}\
+$color1 State: $color2 down
+${else}\
+$color1 IPv4: $color2${addr enp0s25} ${color #144556}
+$color1 Down: $color2${downspeed enp0s25}/s $color1 Up:$color2 ${upspeed enp0s25}/s
+$color1 ${downspeedgraph enp8s0 12,300 000000 33b0dc}
+$color1 ${upspeedgraph enp8s0 12,300 000000 33b0dc}
+$endif\
+
+${color2}Network (vpn.fh-koeln.de)
+${if_up vpn0}\
+$color1 IPv4: $color2${addr vpn0} ${color #144556}
+${else}$color1 State: $color2 down
+$endif\
+
+${color2}Disks
+ (/home)
+ ${color1}Capacity: ${color2}${fs_used /home}/${fs_size /home}
+$color1 I/O:$color2 $diskio
+$color1 ${diskiograph 12,300 000000 33b0dc}
+
+$color2 ${if_existing /run/media/sqrt/Volume/}\
+(Volume) mounted
+ ${color1}Capacity: ${color2}${fs_used /run/media/sqrt/Volume}/${fs_size /run/media/sqrt/Volume}
+$endif\
+
+${if_existing /run/media/sqrt/2E03-5168/}\
+${color2}USB
+${color2} (2E03-5168)
+$color1 ${fs_used /run/media/sqrt/2E03-5168/} / ${fs_size /run/media/sqrt/2E03-5168/}
+${endif}\
+#
+#${color2}Trafficinfos
+#$color1 ${exec cat /home/sqrt/.staumeldungenConky}

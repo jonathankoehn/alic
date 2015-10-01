@@ -1,0 +1,3 @@
+conky &
+conky -c .conkyrcRO &
+conky -c .conkyrcRU &
