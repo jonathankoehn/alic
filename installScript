@@ -4,6 +4,7 @@ mkswap -L swap /dev/sda2
 mount -L arch /mnt
 swapon -L swap
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/serverlist > serverlist
+echo '' > /etc/pacman.d/mirrorlist
 for server in $(<serverlist); do
   echo ${server} >> /etc/pacman.d/mirrorlist
 done

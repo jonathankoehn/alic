@@ -14,6 +14,3 @@ grub-mkconfig -o /boot/grub/grub.cfg
 grub-install /dev/sda
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/configScript > configScript
 chmod +x configScript
-exit
-umount /dev/sda1
-reboot
