@@ -1,7 +1,5 @@
 #!/bin/bash
 sed -n '/%wheel ALL=(ALL) ALL /s/^#//' /etc/sudoers
-useradd -m -g users -s /bin/bash | cat /etc/hostname
-passwd | cat /etc/hostname
 echo "server de.pool.ntp.org" >> /etc/ntp.conf
 ntpd -gq
 hwclock -w
@@ -10,8 +8,13 @@ for service in $(<servicesToEnable); do
   systemctl enable ${service}
 done
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/sshd_config > /etc/ssh/sshd_config
-$username | cat /etc/hostname
+read -p "Enter username: " username
+useradd -m -g users -s /bin/bash $username
 echo "AllowUsers $username" >> /etc/ssh/sshd_config
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyscript > /home/${username}/conkyscript
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcL > /home/${username}/conkyrcL
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcRO > /home/${username}/conkyrcRO
+curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcRU > /home/${username}/conkyrcRU
 rm installScript2
 rm configScript
 rm servicesToEnable
