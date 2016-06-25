@@ -29,5 +29,6 @@ The provided script expects the following configuration:
 If you didn't remove the Arch Linux stick/CD, now choose "Boot existing OS" in the menu.
 
 8. Log in as "root" with the password set before.
-9. Run the third script `/configScript`
+9. Run the third script `/configScript`.
+
 10. Enter name and password for an user account. This user has sudo permissions after running the script.
