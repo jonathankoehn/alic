@@ -1,8 +1,8 @@
 acpid
-ntpd
 avahi-daemon
-org.cups.cupsd.service
 cronie
-NetworkManager.service
-sshd.service
 gdm
+ntpd
+NetworkManager.service
+org.cups.cupsd.service
+sshd.service
