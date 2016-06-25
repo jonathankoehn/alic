@@ -1,6 +1,6 @@
 #!/bin/bash
 dhcpcd
-sed -n '/%wheel ALL=(ALL) ALL /s/^#//' /etc/sudoers
+sed -i '/%wheel\ ALL=(ALL)\ ALL/s/^#//' /etc/sudoers
 echo "server de.pool.ntp.org" >> /etc/ntp.conf
 ntpd -gq
 hwclock -w
