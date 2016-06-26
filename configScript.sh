@@ -1,5 +1,6 @@
 #!/bin/bash
 dhcpcd
+sleep 10
 sed -i '/%wheel\ ALL=(ALL)\ ALL/s/^#//' /etc/sudoers
 echo "server de.pool.ntp.org" >> /etc/ntp.conf
 ntpd -gq
