@@ -18,6 +18,17 @@ curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyscript > /
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcL > /home/${username}/.conkyrc
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcRO > /home/${username}/.conkyrcRO
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcRU > /home/${username}/.conkyrcRU
+cd
+git clone https://aur.archlinux.org/package-query.git
+cd package-query
+makepkg -si
+cd ..
+rm package-query
+git clone https://aur.archlinux.org/yaourt.git
+cd yaourt
+makepkg -si
+cd ..
+rm yaourt
 rm installScript2.sh
 rm configScript.sh
 rm servicesToEnable
