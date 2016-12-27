@@ -90,17 +90,3 @@ ${color2}Disks
  ${color1}Capacity: ${color2}${fs_used /home}/${fs_size /home}
 $color1 I/O:$color2 $diskio
 $color1 ${diskiograph 12,300 000000 33b0dc}
-
-$color2 ${if_existing /run/media/sqrt/Volume/}\
-(Volume) mounted
- ${color1}Capacity: ${color2}${fs_used /run/media/sqrt/Volume}/${fs_size /run/media/sqrt/Volume}
-$endif\
-
-${if_existing /run/media/sqrt/2E03-5168/}\
-${color2}USB
-${color2} (2E03-5168)
-$color1 ${fs_used /run/media/sqrt/2E03-5168/} / ${fs_size /run/media/sqrt/2E03-5168/}
-${endif}\
-#
-#${color2}Trafficinfos
-#$color1 ${exec cat /home/sqrt/.staumeldungenConky}
