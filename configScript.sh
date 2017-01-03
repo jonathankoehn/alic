@@ -16,9 +16,9 @@ passwd $username
 gpasswd -a $username wheel
 echo "AllowUsers $username" >> /etc/ssh/sshd_config
 curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyscript > /home/${username}/conkyscript
-curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcL > /home/${username}/.conkyrc
-curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcRO > /home/${username}/.conkyrcRO
-curl https://raw.githubusercontent.com/jonathankoehn/alic/master/conkyrcRU > /home/${username}/.conkyrcRU
+curl https://raw.githubusercontent.com/jonathankoehn/conkyrc/master/conkyrcLO > /home/${username}/.conkyrcLO
+curl https://raw.githubusercontent.com/jonathankoehn/conkyrc/master/conkyrcRO > /home/${username}/.conkyrcRO
+curl https://raw.githubusercontent.com/jonathankoehn/conkyrc/master/conkyrcRU > /home/${username}/.conkyrcRU
 rm installScript2.sh
 rm configScript.sh
 rm servicesToEnable
