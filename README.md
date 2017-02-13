@@ -12,18 +12,19 @@ The provided script expects the following configuration:
 
 3. Setup internet connection `dhcpcd`.
   * If DHCP is not configured:  
-  `ip addr add <host ip> dev <dev name>`  
+  `ip addr add <host ip>/<netmask> dev <dev/<netmask> name>`  
   `ip route add default via <gateway>`  
+  `ip link set <dev name> udev namep`
   `echo "nameserver <dns>" >> /etc/resolv.conf`  
  
 4. Download and start the first script  
 `curl -O https://raw.githubusercontent.com/jonathankoehn/alic/master/installScript.sh`  
-`chmod + x installScript.sh`  
+`chmod +x installScript.sh`  
 `./installScript.sh`
 
 5. Download and start the second script  
 `curl -O https://raw.githubusercontent.com/jonathankoehn/alic/master/installScript2.sh`  
-`chmod + x installScript2.sh`  
+`chmod +x installScript2.sh`  
 `./installScript2.sh`
 
 6. When you are asked to, enter the desired hostname and root password.
