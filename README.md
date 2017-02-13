@@ -12,7 +12,7 @@ The provided script expects the following configuration:
 
 3. Setup internet connection `dhcpcd`.
   * If DHCP is not configured:  
-  `ip addr add \<host ip> dev \<dev name>`  
+  `ip addr add <host ip> dev <dev name>`  
   `ip route add default via <gateway>`  
   `echo "nameserver <dns>" >> /etc/resolv.conf`  
  
