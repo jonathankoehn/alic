@@ -10,7 +10,12 @@ The provided script expects the following configuration:
 /dev/sda2 , swap partition, hex code: 8200  
 /dev/sda3 , boot partition, hex code: ef02, 3MB
 
-3. Setup internet connection `dhcpcd`
+3. Setup internet connection `dhcpcd`.
+  * If DHCP is not configured:  
+  `ip addr add \<host ip> dev \<dev name>`  
+  `ip route add default via <gateway>`  
+  `echo "nameserver <dns>" >> /etc/resolv.conf`  
+ 
 4. Download and start the first script  
 `curl -O https://raw.githubusercontent.com/jonathankoehn/alic/master/installScript.sh`  
 `chmod + x installScript.sh`  
@@ -29,6 +34,6 @@ The provided script expects the following configuration:
 If you didn't remove the Arch Linux stick/CD, now choose "Boot existing OS" in the menu.
 
 8. Log in as "root" with the password set before.
-9. Run the third script `/configScript`.
+9. Run the third script `/configScript.sh`.
 
 10. Enter name and password for an user account. This user has sudo permissions after running the script.
