@@ -1,5 +1,5 @@
 #!/bin/bash
-pacman -S sudo acpid avahi cairo-dock conky cronie cups dbus  firefox gnome-extra gnome grub guake mc networkmanager network-manager-applet ntp openssh ttf-dejavu vim xorg-drivers xorg-server xorg-server-utils xorg-utils xorg-xinit
+pacman -S sudo acpid avahi cairo-dock conky cronie cups dbus  firefox gnome-extra gnome grub guake mc networkmanager network-manager-applet ntp openssh ttf-dejavu vim wget xorg-drivers xorg-server xorg-server-utils xorg-utils xorg-xinit
 read -p "Enter hostname: " hname
 echo "$hname" > /etc/hostname
 echo KEYMAP=de-latin1 > /etc/vconsole.conf
