@@ -5,5 +5,5 @@ PermitRootLogin no
 AuthorizedKeysFile .ssh/authorized_keys
 UsePAM yes
 UsePrivilegeSeparation sandbox
-Banner /etc/issue
+# Banner /etc/issue
 Subsystem sftp /usr/lib/ssh/sftp-server
