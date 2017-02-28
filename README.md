@@ -5,7 +5,7 @@ NO, it's not the perfect configuration for everybody. It's adjusted to my needs.
 
 1. Boot the computer or VM from an Arch Linux ISO image.
 2. Set up the disk `gdisk /dev/sda`. 
-The provided script expects the following configuration:  
+The provided scripts expect legacy BIOS and the following partitions:  
 /dev/sda1 , root partition, hex code: 8300  
 /dev/sda2 , swap partition, hex code: 8200  
 /dev/sda3 , boot partition, hex code: ef02, 3MB
@@ -18,12 +18,12 @@ The provided script expects the following configuration:
   `echo "nameserver <dns>" >> /etc/resolv.conf`  
  
 4. Download and start the first script  
-`curl -O https://raw.githubusercontent.com/jonathankoehn/alic/master/installScript.sh`  
+`curl -O http://a.jkoehn.de/installScript.sh`  
 `chmod +x installScript.sh`  
 `./installScript.sh`
 
 5. Download and start the second script  
-`curl -O https://raw.githubusercontent.com/jonathankoehn/alic/master/installScript2.sh`  
+`curl -O http://a.jkoehn.de/installScript2.sh`  
 `chmod +x installScript2.sh`  
 `./installScript2.sh`
 
