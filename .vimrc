@@ -10,3 +10,5 @@ set hlsearch 			" Suche highlighten
 set lazyredraw 			" Effizienz dank Faulheit
 set cursorline			" aktuelle Zeile hervorheben
 :hi CursorLine cterm=NONE ctermbg=green	" nicht unterstreichen, Farbe der aktuellen Zeile
+set tabstop=4			" Tabgroesse
+set autoindent			" automatische Einrueckung
